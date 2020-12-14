@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class UserInfoActivity extends AppCompatActivity {
     private TextView age;
     private TextView dAge;
@@ -24,8 +27,20 @@ public class UserInfoActivity extends AppCompatActivity {
         getViews();
         if(ConfigUtil.isRegister){
             //已经注册过
+            resgi.setText("");
             rb1.setChecked(true);
+            rb2.setChecked(true);
+            rb3.setChecked(true);
+            rb4.setChecked(true);
             ConfigUtil.check[0] = 1;
+            try {
+                JSONObject object = new JSONObject(ConfigUtil.jsonStr);
+                age.setText(object.getInt("age")+"");
+                sex.setText(object.getString("sex"));
+                dAge.setText(object.getString("driverYear"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }else {
             resgi.setText("请您先注册");
         }

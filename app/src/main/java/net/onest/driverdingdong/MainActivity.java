@@ -75,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-//        Log.e("1",1+"");
-//        navigationView.setCheckedItem(R.id.nav_order);
-//        Log.e("2",1+"");
         getDriverStatu();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -95,10 +92,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        OrderFragment orderFragment = new OrderFragment();
-//        FragmentManager manager = getFragmentManager();
-//        FragmentTransaction transaction = manager.beginTransaction();
-//        transaction.replace(orderFragment,);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_order,R.id.nav_wallet,R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_help,R.id.nav_set)
