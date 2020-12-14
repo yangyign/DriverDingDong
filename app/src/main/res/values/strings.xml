@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DriverDingDong</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="agora_app_id">bf5eaf6f799b46fb827ab68dae056af7</string>
+    <string name="agora_access_token">006bf5eaf6f799b46fb827ab68dae056af7IAD3v8sdqO/9t0dbNgwk5TOZuqeo6VSUt5tcgq67zTO4f+IVUyEAAAAAEADQTRPKER7YXwEAAQAQHthf</string>
+</resources>

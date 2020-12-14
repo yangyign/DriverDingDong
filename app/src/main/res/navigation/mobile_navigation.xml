@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="net.onest.driverdingdong.ui.home.HomeFragment"
+        android:label="接单"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="net.onest.driverdingdong.ui.order.OrderFragment"
+        android:label="我的订单"
+        tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/nav_wallet"
+        android:name="net.onest.driverdingdong.ui.wallet.WalletFragment"
+        android:label="我的钱包"
+        tools:layout="@layout/fragment_wallet" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="net.onest.driverdingdong.ui.gallery.GalleryFragment"
+        android:label="我的行程"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="net.onest.driverdingdong.ui.slideshow.SlideshowFragment"
+        android:label="常用地址"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="net.onest.driverdingdong.ui.help.HelpFragment"
+        android:label="帮助"
+        tools:layout="@layout/fragment_help" />
+
+    <fragment
+        android:id="@+id/nav_set"
+        android:name="net.onest.driverdingdong.ui.set.SetFragment"
+        android:label="设置"
+        tools:layout="@layout/fragment_set" />
+</navigation>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spingarr" >
+        <item>爸爸</item>
+        <item>妈妈</item>
+        <item>爷爷</item>
+        <item>奶奶</item>
+        <item>外公</item>
+        <item>外婆</item>
+        <item>叔叔</item>
+        <item>阿姨</item>
+    </string-array>
+    <string-array name="color" >
+        <item>黑色</item>
+        <item>白色</item>
+        <item>银色</item>
+        <item>灰色</item>
+        <item>红色</item>
+        <item>蓝色</item>
+        <item>金色</item>
+    </string-array>
+</resources>
