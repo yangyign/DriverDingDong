@@ -25,6 +25,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class OrderFragment extends Fragment {
     private int id;
@@ -37,6 +40,7 @@ public class OrderFragment extends Fragment {
     private Button end;
     private String str;
     private String str0;
+    private String strs;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -45,6 +49,16 @@ public class OrderFragment extends Fragment {
                 case 1:
                     if(str.equals("true")){
                         tvStatus.setText("运行中");
+                    }
+                    break;
+                case 2:
+                    if(strs.equals("true")){
+                        //
+                        ConfigUtil.isHaveOrder = false;
+                        tvStatus.setText("当前没有订单");
+                        tvPrice.setText("");
+                        tvFrom.setText("");
+                        tvTo.setText("");
                     }
                     break;
             }
@@ -89,10 +103,42 @@ public class OrderFragment extends Fragment {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //设置当前订单状态为已完成，并传递结束时间
+                if(ConfigUtil.isHaveOrder){
+                    endOrder();
+                }
             }
         });
         return root;
+    }
+
+    private void endOrder() {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                String endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
+                Log.e("结束时间",endTime);
+                try {
+                    URL url = new URL(ConfigUtil.xt+"EndOrderServlet?id="+ConfigUtil.id+"&endTime="+endTime);
+                    InputStream is = url.openStream();
+                    int len = 0;
+                    byte[] b=new byte[512];
+                    if((len=is.read(b))!=-1){
+                        strs = new String(b,0,len);
+                    }
+                    Log.e("结束该订单的结果",strs);
+                    Message message = new Message();
+                    message.what = 2;
+                    handler.sendMessage(message);
+                    is.close();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     private void updateDriverMoney() {

@@ -2,6 +2,7 @@ package net.onest.driverdingdong;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import net.onest.driverdingdong.ui.order.OrderFragment;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class OrderListAdapter extends BaseAdapter {
     private List<Order> dayTripList=new ArrayList<>();
     private Context context;
     private int resId;
+    private String str;
 
     public OrderListAdapter(List<Order> dayTripList, Context context, int resId) {
         this.dayTripList = dayTripList;
@@ -78,6 +85,8 @@ public class OrderListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 if(ConfigUtil.isRegister){
+                    //修改司机状态为 忙碌
+                    updateDriverStatus();
                     ConfigUtil.order.setId(dayTripList.get(position).getId());
                     ConfigUtil.order.setSpend(dayTripList.get(position).getSpend());
                     ConfigUtil.order.setOrderName(dayTripList.get(position).getOrderName());
@@ -89,6 +98,31 @@ public class OrderListAdapter extends BaseAdapter {
         });
         return convertView;
     }
+
+    private void updateDriverStatus() {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    URL url = new URL(ConfigUtil.xt+"ChangeDriverStatesServlet?id="+ConfigUtil.id);
+                    InputStream is = url.openStream();
+                    int len = 0;
+                    byte[] b = new byte[512];
+                    if((len = is.read(b))!=-1){
+                        str = new String(b,0,len);
+                    }
+                    Log.e("修改司机状态为忙碌的结果",str);
+                    is.close();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
     private class Myholder{
         private TextView goOrCome;
         private TextView date;

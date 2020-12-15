@@ -194,7 +194,7 @@ public class HomeFragment extends Fragment {
                         order.setTime(object.getString("time"));
                         order.setDate(object.getString("date"));
                         order.setOrderName(object.getString("from")+"-"+object.getString("to"));
-                        order.setName(object.getString(""));
+                        order.setName(object.getString("address"));
                         order.setSpend(object.getString("price"));
                         order.setId(object.getInt("order_id"));
                         trips.add(order);
