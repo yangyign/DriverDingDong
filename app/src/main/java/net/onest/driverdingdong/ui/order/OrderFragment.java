@@ -120,7 +120,7 @@ public class OrderFragment extends Fragment {
                 String endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
                 Log.e("结束时间",endTime);
                 try {
-                    URL url = new URL(ConfigUtil.xt+"EndOrderServlet?id="+ConfigUtil.id+"&endTime="+endTime);
+                    URL url = new URL(ConfigUtil.xt+"EndOrderServlet?id="+id+"&endTime="+endTime+"&driverId="+ConfigUtil.id+"&status="+"空闲");
                     InputStream is = url.openStream();
                     int len = 0;
                     byte[] b=new byte[512];

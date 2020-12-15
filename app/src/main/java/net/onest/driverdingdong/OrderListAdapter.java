@@ -105,7 +105,7 @@ public class OrderListAdapter extends BaseAdapter {
             public void run() {
                 super.run();
                 try {
-                    URL url = new URL(ConfigUtil.xt+"ChangeDriverStatesServlet?id="+ConfigUtil.id);
+                    URL url = new URL(ConfigUtil.xt+"ChangeDriverStatesServlet?id="+ConfigUtil.id+"&status="+"忙碌");
                     InputStream is = url.openStream();
                     int len = 0;
                     byte[] b = new byte[512];
