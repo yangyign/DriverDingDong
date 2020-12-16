@@ -87,11 +87,10 @@ public class MainActivity extends AppCompatActivity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,UserInfoActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,UserInfoActivity.class);
+//                startActivity(intent);
             }
         });
-
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_order,R.id.nav_wallet,R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_help,R.id.nav_set)
