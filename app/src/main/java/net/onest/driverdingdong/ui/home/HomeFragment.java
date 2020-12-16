@@ -63,6 +63,8 @@ public class HomeFragment extends Fragment {
             switch (msg.what){
                 case 1:
                     //重新从客户端请求数据
+                    adapter=new OrderListAdapter(trips,getContext(),R.layout.item_recycleview_day_trip);
+                    listView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
                     refreshLayout.finishRefresh();
                     break;
