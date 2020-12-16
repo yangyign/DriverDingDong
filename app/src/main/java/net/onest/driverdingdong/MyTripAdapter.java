@@ -51,9 +51,11 @@ public class MyTripAdapter extends BaseAdapter {
         final TextView tv_date = view.findViewById(R.id.my_trip_date);
         final TextView tv_state = view.findViewById(R.id.my_trip_place_end);
         final TextView tv_begin = view.findViewById(R.id.my_trip_place_begin);
+        final TextView tv_Status = view.findViewById(R.id.my_trip_state);
         tv_date.setText(trips.get(i).getDate()+" "+trips.get(i).getTime());
         tv_state.setText(str[1]);
         tv_begin.setText(str[0]);
+        tv_Status.setText(trips.get(i).getStatus());
         return view;
     }
 }

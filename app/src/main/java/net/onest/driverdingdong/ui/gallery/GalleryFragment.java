@@ -116,6 +116,7 @@ public class GalleryFragment extends Fragment {
                         order.setTime(object.getString("time"));
                         order.setDate(object.getString("date"));
                         order.setOrderName(object.getString("from")+"-"+object.getString("to"));
+                        order.setStatus(object.getString("status"));
                         trips.add(order);
                     }
                     Log.e("orders",trips.toString());

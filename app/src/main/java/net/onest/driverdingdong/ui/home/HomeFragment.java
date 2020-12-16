@@ -188,6 +188,8 @@ public class HomeFragment extends Fragment {
                     Log.e("获取司机待接单信息的结果",stringBuffer.toString());
                     JSONArray jsonArray = new JSONArray(stringBuffer.toString());
 //                        wallets.clear();
+                    trips.clear();
+                    Log.e("长度",trips.size()+"");
                     for(int i =0;i<jsonArray.length();i++){
                         JSONObject object = new JSONObject(jsonArray.getJSONObject(i).toString());
                         Order order = new Order();
