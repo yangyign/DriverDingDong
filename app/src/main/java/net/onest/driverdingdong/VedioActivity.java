@@ -350,6 +350,7 @@ public class VedioActivity extends AppCompatActivity {
             mCallBtn.setImageResource(R.drawable.btn_endcall);
         } else {
             endCall();
+            finish();
             mCallEnd = true;
             mCallBtn.setImageResource(R.drawable.btn_startcall);
         }
